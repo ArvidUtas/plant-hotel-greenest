@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Main {
     public Main() {
-        String namn = "";
+        String namnInput;
         Kaktus igge = new Kaktus("Igge");
         Palm laura = new Palm("Laura", 5);
         Palm olof = new Palm("Olof", 1);
@@ -19,10 +19,12 @@ public class Main {
 
         boolean loopaIgen = true;
         while (loopaIgen) {
-            namn = JOptionPane.showInputDialog("Vilken växt ska få vätska?");
-            for (int i = 0; i < allaVäxter.size(); i++) {
-                Växt växt = allaVäxter.get(i);
-                if (växt.getNamn().equalsIgnoreCase(namn)) {
+            namnInput = JOptionPane.showInputDialog("Vilken växt ska få vätska?");
+            if (namnInput == null) {
+                System.exit(0);
+            }
+            for (Växt växt : allaVäxter) {
+                if (växt.getNamn().equalsIgnoreCase(namnInput)) {
                     JOptionPane.showMessageDialog(null, växt.getNamn() + " ska få " +
                             växt.getFormel(växt.getLängd(), växt.getClass().getName()) + " liter " + växt.getTypAvVätska());
                     loopaIgen = false;
@@ -30,7 +32,7 @@ public class Main {
             }
             if (!loopaIgen)
                 break;
-            else if (namn.equalsIgnoreCase(""))
+            else if (namnInput.equalsIgnoreCase(""))
                 JOptionPane.showMessageDialog(null, "Du måste fylla i ett namn, försök igen");
             else
                 JOptionPane.showMessageDialog(null, "Du har fyllt i ett felaktigt namn, försök igen");
