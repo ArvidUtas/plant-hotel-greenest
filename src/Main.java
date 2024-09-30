@@ -4,11 +4,10 @@ import java.util.List;
 
 public class Main {
     public Main() {
-        String namnInput;
-        Kaktus igge = new Kaktus("Igge");
-        Palm laura = new Palm("Laura", 5);
-        Palm olof = new Palm("Olof", 1);
-        KöttätandeVäxt meatloaf = new KöttätandeVäxt("Meatloaf", 0.7);
+        Växt igge = new Kaktus("Igge");
+        Växt laura = new Palm("Laura", 5);
+        Växt olof = new Palm("Olof", 1);
+        Växt meatloaf = new KöttätandeVäxt("Meatloaf", 0.7);
 
         List<Växt> allaVäxter = new LinkedList<>() {{
             add(igge);
@@ -17,6 +16,7 @@ public class Main {
             add(meatloaf);
         }};
 
+        String namnInput;
         boolean loopaIgen = true;
         while (loopaIgen) {
             namnInput = JOptionPane.showInputDialog("Vilken växt ska få vätska?");
@@ -26,7 +26,8 @@ public class Main {
             for (Växt växt : allaVäxter) {
                 if (växt.getNamn().equalsIgnoreCase(namnInput)) {
                     JOptionPane.showMessageDialog(null, växt.getNamn() + " ska få " +
-                            växt.getFormel(växt.getLängd(), växt.getClass().getName()) + " liter " + växt.getTypAvVätska());
+                            växt.getFormel(växt.getLängd(), växt.getClass().getName()) + " liter " +
+                            växt.getTypAvVätska()); // POLYMORFISM i metoden getTypAvVätska
                     loopaIgen = false;
                 }
             }
@@ -35,7 +36,8 @@ public class Main {
             else if (namnInput.equalsIgnoreCase(""))
                 JOptionPane.showMessageDialog(null, "Du måste fylla i ett namn, försök igen");
             else
-                JOptionPane.showMessageDialog(null, "Du har fyllt i ett felaktigt namn, försök igen");
+                JOptionPane.showMessageDialog(null,
+                        "Du har fyllt i ett felaktigt namn, försök igen");
         }
     }
 

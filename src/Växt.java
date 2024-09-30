@@ -1,8 +1,9 @@
-public class Växt implements IFormel{
+public abstract class Växt implements IFormel{ //INTERFACE som ÄRVS till subklasserna Palm, Kaktus & KöttätandeVäxt
+    //INKAPSLING
     private String namn;
     private double längd;
 
-    //här var det enums!
+    //här var det ENUMS!
     public enum TypAvVätska {kranvatten, mineralvatten, proteindryck;};
     private TypAvVätska typAvVätska;
 
