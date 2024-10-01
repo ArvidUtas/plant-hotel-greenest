@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,12 +10,8 @@ public class Main {
         Växt olof = new Palm("Olof", 1);
         Växt meatloaf = new KöttätandeVäxt("Meatloaf", 0.7);
 
-        List<Växt> allaVäxter = new LinkedList<>() {{
-            add(igge);
-            add(laura);
-            add(olof);
-            add(meatloaf);
-        }};
+        List<Växt> allaVäxter = new LinkedList<>();
+        Collections.addAll(allaVäxter, igge, laura, olof, meatloaf);
 
         String namnInput;
         boolean loopaIgen = true;
@@ -26,8 +23,7 @@ public class Main {
             for (Växt växt : allaVäxter) {
                 if (växt.getNamn().equalsIgnoreCase(namnInput)) {
                     JOptionPane.showMessageDialog(null, växt.getNamn() + " ska få " +
-                            växt.getFormel(växt.getLängd(), växt.getClass().getName()) + " liter " +
-                            växt.getTypAvVätska()); // POLYMORFISM i metoden getTypAvVätska
+                            växt.getFormel() + " liter " + växt.getTypAvVätska()); // POLYMORFISM i metoden getTypAvVätska
                     loopaIgen = false;
                 }
             }

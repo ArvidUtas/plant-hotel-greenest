@@ -8,4 +8,8 @@ public class Kaktus extends Växt{
     public TypAvVätska getTypAvVätska() {
         return typAvVätska;
     }
+    @Override
+    public double getFormel() {
+        return 0.02;
+    }
 }

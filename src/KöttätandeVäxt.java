@@ -9,4 +9,8 @@ public class KöttätandeVäxt extends Växt {
     public TypAvVätska getTypAvVätska() {
         return typAvVätska;
     }
+    @Override
+    public double getFormel() {
+        return 0.1 + (0.2 * getLängd());
+    }
 }
