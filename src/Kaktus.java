@@ -1,6 +1,6 @@
 public class Kaktus extends Växt{
     private final String typAvVätska = TypAvVätska.MINERALVATTEN.getTypAvVätska();
-    private final double formel = 0.2;
+    private final double formel = 0.02;
 
     public Kaktus(String namn){
         super.setNamn(namn);
