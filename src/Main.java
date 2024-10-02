@@ -14,21 +14,20 @@ public class Main {
         Collections.addAll(allaVäxter, igge, laura, olof, meatloaf);
 
         String namnInput;
-        boolean loopaIgen = true;
-        while (loopaIgen) {
+        while (true) {
+            boolean korrekInput = false;
             namnInput = JOptionPane.showInputDialog("Vilken växt ska få vätska?");
             if (namnInput == null) {
-                System.exit(0);
+                System.exit(0); //Avbryter loopen och programmet. Hindrar krasch vid Cancel
             }
             for (Växt växt : allaVäxter) {
                 if (växt.getNamn().equalsIgnoreCase(namnInput)) {
                     JOptionPane.showMessageDialog(null, växt.getNamn() + " ska få " +
                             växt.getFormel() + " liter " + växt.getTypAvVätska()); // POLYMORFISM i metoden getTypAvVätska
-                    loopaIgen = false;
+                    korrekInput = true;
                 }
             }
-            if (!loopaIgen)
-                break;
+            if (korrekInput){}
             else if (namnInput.equalsIgnoreCase(""))
                 JOptionPane.showMessageDialog(null, "Du måste fylla i ett namn, försök igen");
             else

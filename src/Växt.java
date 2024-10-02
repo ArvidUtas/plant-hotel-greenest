@@ -1,14 +1,11 @@
-public abstract class Växt implements IFormel{ //INTERFACE som ÄRVS till subklasserna Palm, Kaktus & KöttätandeVäxt
+public abstract class Växt implements IDataTillSkärm { //INTERFACE som ÄRVS till subklasserna Palm, Kaktus & KöttätandeVäxt
     //INKAPSLING
     private String namn;
     private double längd;
+    private String TypAvVätska;
 
-    //här var det ENUMS!
-    public enum TypAvVätska {kranvatten, mineralvatten, proteindryck;};
-    private TypAvVätska typAvVätska;
-
-    public TypAvVätska getTypAvVätska() {
-        return typAvVätska;
+    public String getTypAvVätska() {
+        return TypAvVätska;
     }
 
     public String getNamn() {
